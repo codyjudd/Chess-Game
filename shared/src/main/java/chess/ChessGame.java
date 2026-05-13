@@ -27,8 +27,12 @@ public class ChessGame {
     public void setBoard(ChessBoard board) {
         this.board = board;
     }
-}
+
     public ChessBoard getBoard() {
-        throw new RuntimeException("Not implemented");
+        return board;
     }
+
 }
+
+
+
