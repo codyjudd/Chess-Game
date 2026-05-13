@@ -1,9 +1,7 @@
 package chess;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
-
 
 public class ChessGame {
 
@@ -29,76 +27,79 @@ public class ChessGame {
         this.teamTurn = teamTurn;
     }
 
-    public void setBoard(ChessBoard board) {
-        this.board = board;
-    }
-
     public ChessBoard getBoard() {
         return board;
     }
 
-
-    // VALID MOVES
-
+    public void setBoard(ChessBoard board) {
+        this.board = board;
+    }
 
     public Collection<ChessMove> validMoves(ChessPosition startPosition) {
+        System.out.println("validMoves not done yet");
+        return null;
+    }
 
-        // Get the piece from  the board
-
-        ChessPiece piece = board.getPiece(startPosition);
-
-        // No piece there
-
-        if (piece == null) {
-
-            return null;
-
-        }
-
-        // Get all the possible piece moves
-
-        Collection<ChessMove> possibleMoves =
-
-                piece.pieceMoves(board, startPosition);
-
-        // Store only legal moves
-
-        Collection<ChessMove> validMoves =
-
-                new ArrayList<>();
-
-        // Test every move
-
-        for (ChessMove move : possibleMoves) {
-
-            // Copy board
-
-            ChessBoard copy = copyBoard(board); // will do this later
-
-            // Try move on copied board
-
-            makeMoveOnBoard(copy, move); // same will aslo do this later
-
-            // If king is safe, move is legal
-
-            if (!isInCheckOnBoard(copy,piece.getTeamColor())) {
-
-                validMoves.add(move);
-
-            }
-
-        }
-
-        return validMoves;
+    public void makeMove(ChessMove move) throws InvalidMoveException {
+        System.out.println("makeMove not done yet");
     }
 
     public boolean isInCheck(TeamColor teamColor) {
-
-        return isInCheckOnBoard(board, teamColor); // will do this later
-
+        System.out.println("isInCheck not done yet");
+        return false;
     }
 
+    public boolean isInCheckmate(TeamColor teamColor) {
+        System.out.println("isInCheckmate not done yet");
+        return false;
+    }
+
+    public boolean isInStalemate(TeamColor teamColor) {
+        System.out.println("isInStalemate not done yet");
+        return false;
+    }
+
+    private boolean teamHasNoValidMoves(TeamColor teamColor) {
+        System.out.println("teamHasNoValidMoves not done yet");
+        return false;
+    }
+
+    private boolean isInCheckOnBoard(ChessBoard currentBoard, TeamColor teamColor) {
+        System.out.println("isInCheckOnBoard not done yet");
+        return false;
+    }
+
+    private ChessPosition findKing(ChessBoard currentBoard, TeamColor teamColor) {
+        System.out.println("findKing not done yet");
+        return null;
+    }
+
+    private void makeMoveOnBoard(ChessBoard currentBoard, ChessMove move) {
+        System.out.println("makeMoveOnBoard not done yet");
+    }
+
+    private ChessBoard copyBoard(ChessBoard original) {
+        System.out.println("copyBoard not done yet");
+        return new ChessBoard();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        System.out.println("equals not done yet");
+
+        if (!(o instanceof ChessGame)) {
+            return false;
+        }
+
+        ChessGame other = (ChessGame) o;
+
+        return teamTurn == other.teamTurn &&
+                Objects.equals(board, other.board);
+    }
+
+    @Override
+    public int hashCode() {
+        System.out.println("hashCode not done yet");
+        return Objects.hash(teamTurn, board);
+    }
 }
-
-
-
