@@ -24,11 +24,11 @@ public class ChessGame {
         this.teamTurn = teamTurn;
     }
 
-    public ChessBoard getBoard() {
-        return board;
-    }
-
     public void setBoard(ChessBoard board) {
         this.board = board;
+    }
+}
+    public ChessBoard getBoard() {
+        throw new RuntimeException("Not implemented");
     }
 }
