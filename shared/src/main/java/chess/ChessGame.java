@@ -81,9 +81,7 @@ public class ChessGame {
 
             // If king is safe, move is legal
 
-            if (!isInCheckOnBoard(copy, // implemeent  is in check on board do this later
-
-                    piece.getTeamColor())) {
+            if (!isInCheckOnBoard(copy,piece.getTeamColor())) {
 
                 validMoves.add(move);
 
@@ -92,6 +90,11 @@ public class ChessGame {
         }
 
         return validMoves;
+    }
+
+    public boolean isInCheck(TeamColor teamColor) {
+
+        return isInCheckOnBoard(board, teamColor); // will do this later
 
     }
 
