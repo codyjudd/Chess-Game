@@ -15,4 +15,20 @@ public class ChessGame {
         board.resetBoard();
         teamTurn = TeamColor.WHITE;
     }
+
+    public TeamColor getTeamTurn() {
+        return teamTurn;
+    }
+
+    public void setTeamTurn(TeamColor teamTurn) {
+        this.teamTurn = teamTurn;
+    }
+
+    public ChessBoard getBoard() {
+        return board;
+    }
+
+    public void setBoard(ChessBoard board) {
+        this.board = board;
+    }
 }
