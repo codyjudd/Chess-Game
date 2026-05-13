@@ -102,4 +102,6 @@ public class ChessGame {
         System.out.println("hashCode not done yet");
         return Objects.hash(teamTurn, board);
     }
+
+    // test commit after name change
 }
