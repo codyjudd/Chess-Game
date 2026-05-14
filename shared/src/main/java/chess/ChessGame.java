@@ -289,32 +289,70 @@ public class ChessGame {
     }
 
     private void makeMoveOnBoard(ChessBoard currentBoard, ChessMove move) {
-        System.out.println("makeMoveOnBoard not done yet");
+        ChessPiece piece = currentBoard.getPiece(move.getStartPosition());
+
+        if (move.getPromotionPiece() != null) {
+
+            piece = new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
+
+        }
+
+        currentBoard.addPiece(move.getEndPosition(), piece);
+
+        currentBoard.addPiece(move.getStartPosition(), null);
+
     }
 
     private ChessBoard copyBoard(ChessBoard original) {
-        System.out.println("copyBoard not done yet");
-        return new ChessBoard();
+        ChessBoard copy = new ChessBoard();
+
+        for (int row = 1; row <= 8; row++) {
+
+            for (int col = 1; col <= 8; col++) {
+
+                ChessPosition position = new ChessPosition(row, col);
+
+                ChessPiece piece = original.getPiece(position);
+
+                if (piece != null) {
+
+                    ChessPiece newPiece = new ChessPiece(piece.getTeamColor(), piece.getPieceType());
+
+                    copy.addPiece(position, newPiece);
+
+                }
+
+            }
+
+        }
+
+        return copy;
     }
 
     @Override
+
     public boolean equals(Object o) {
-        System.out.println("equals not done yet");
 
         if (!(o instanceof ChessGame)) {
+
             return false;
+
         }
 
         ChessGame other = (ChessGame) o;
 
         return teamTurn == other.teamTurn &&
+
                 Objects.equals(board, other.board);
+
     }
 
     @Override
+
     public int hashCode() {
-        System.out.println("hashCode not done yet");
+
         return Objects.hash(teamTurn, board);
+
     }
 
 }
